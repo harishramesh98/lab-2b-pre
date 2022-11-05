@@ -24,15 +24,15 @@
 #define PICO_DEFAULT_WS2812_POWER_PIN 11
 #define QTPY_BOOT_PIN 21
 
-typedef          uint32_t   VALUE;
-typedef volatile uint32_t * ADDRESS;
+// typedef          uint32_t   VALUE;
+// typedef volatile uint32_t * ADDRESS;
 
-VALUE register_read(ADDRESS address) {
-    return *address;
-}
-void register_write(ADDRESS address, VALUE value) {
-    *address = value;
-}
+// VALUE register_read(ADDRESS address) {
+//     return *address;
+// }
+// void register_write(ADDRESS address, VALUE value) {
+//     *address = value;
+// }
 
 
 static inline void put_pixel(uint32_t pixel_grb) {
@@ -66,26 +66,26 @@ int main() {
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
     status stat;
     stat.statval = 0x00000000;
-    ADDRESS address_input;
-    uint32_t value_input;
-    VALUE address_value;
+//     ADDRESS address_input;
+//     uint32_t value_input;
+//     VALUE address_value;
 
     sleep_ms(10000);
     while (1) {
-            printf("Enter register to access:\n");
-            while (!stdio_usb_connected());{
-                scanf("%d",&address_input);
-            }
+//             printf("Enter register to access:\n");
+//             while (!stdio_usb_connected());{
+//                 scanf("%d",&address_input);
+//             }
             
-            address_value = register_read(address_input);
-            printf("Value at %x is %x", address_input,address_value);
+//             address_value = register_read(address_input);
+//             printf("Value at %x is %x", address_input,address_value);
 
-            printf("What value u want put in register:\n");
-            scanf("%x",&value_input);
+//             printf("What value u want put in register:\n");
+//             scanf("%x",&value_input);
 
-            register_write(address_input, value_input);
-            address_value = register_read(address_input);
-            printf("Value at %x is %x", address_input,address_value);
+//             register_write(address_input, value_input);
+//             address_value = register_read(address_input);
+//             printf("Value at %x is %x", address_input,address_value);
 
 
             if(gpio_get(bootpin)!=0)
