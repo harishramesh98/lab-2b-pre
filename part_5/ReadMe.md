@@ -1,4 +1,4 @@
-University of Pennsylvania, ESE 5190: Intro to Embedded Systems, Lab 2A
+University of Pennsylvania, ESE 5190: Intro to Embedded Systems, Lab 2B
 
     Harish Ramesh, worked with Sugata Sen
     https://www.linkedin.com/in/harishramesh1998/, https://www.linkedin.com/in/sugata-sen/
