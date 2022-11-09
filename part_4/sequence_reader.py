@@ -7,7 +7,6 @@ def write():
     ser = serial.Serial('COM12', 115200, timeout=1)
     time.sleep(2)
     f = open("D:\Course Stuff\Fall'22\ESE 519\lab\SDK\lab\sequence.txt", "w")
-    print('write start')
     if ser.is_open:
         # print(ser.readline())
         read = str(ser.readline())
@@ -15,39 +14,37 @@ def write():
         print(read)
         ser.close()
         f.close()
-    print('write end')
 
 
 while True:
     ser = serial.Serial('COM12', 115200, timeout=1)
-    print('Enter Input:')
+    print('Enter Input(r: record; n: normal replay; s: slow replay):')
     x = input()
     if(x == 'r'):
         # ser = serial.Serial('COM9', 115200, timeout=1)
         time.sleep(2)
         ser.write(b'r')
-        print('record start')
+        print('Recording start')
         ser.close()
         time.sleep(10)
-        print('recorded')
+        print('Recording end')
     elif(x =='n'):
         # ser = serial.Serial('COM9', 115200, timeout=1)
         time.sleep(2)
-        print("print start normal")
+        print("Starting normal data replay")
         ser.write(b'p')
         ser.close()
         write()
         time.sleep(2)
-        print("printed")
+        print("Replay done")
     elif(x =='s'):
         # ser = serial.Serial('COM9', 115200, timeout=1)
         time.sleep(2)
-        print("print start slow")
+        print("Starting slow replay of data")
         ser.write(b's')
-        print('p1')
         ser.close()
         write()
         time.sleep(2)
-        print("printed")
+        print("Replay done")
 
     
