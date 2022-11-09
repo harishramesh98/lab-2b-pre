@@ -18,16 +18,6 @@
 #define PICO_DEFAULT_WS2812_POWER_PIN 11
 #define QTPY_BOOT_PIN 21
 const uint bootpin = QTPY_BOOT_PIN;
-// typedef          uint32_t   VALUE;
-// typedef volatile uint32_t * ADDRESS;
-
-// VALUE register_read(ADDRESS address) {
-//     return *address;
-// }
-// void register_write(ADDRESS address, VALUE value) {
-//     *address = value;
-// }
-
 
 static inline void put_pixel(uint32_t pixel_grb) {
     pio_sm_put_blocking(pio0, 0, pixel_grb << 8u);
@@ -72,7 +62,6 @@ void record_data(int *sequence){
 }
 
 int main() {
-    //set_sys_clock_48();
     const uint POW_PIN = PICO_DEFAULT_WS2812_POWER_PIN;
     gpio_init(POW_PIN);
     gpio_set_dir(POW_PIN, GPIO_OUT);
@@ -86,11 +75,7 @@ int main() {
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
     status stat;
     stat.statval = 0x00000000;
-//     ADDRESS address_input;
-//     uint32_t value_input;
-//     VALUE address_value;
 
-    // while(!stdio_usb_connected());
     int sequence[5000];
 
     while (1) {
