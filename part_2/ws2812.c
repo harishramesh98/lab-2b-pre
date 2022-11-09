@@ -19,6 +19,7 @@
 #ifdef PICO_DEFAULT_WS2812_PIN
 #define WS2812_PIN PICO_DEFAULT_WS2812_PIN
 #else
+
 // default to pin 2 if the board doesn't have a default WS2812 pin defined
 #define WS2812_PIN 2
 #endif
@@ -65,8 +66,6 @@ int main() {
     uint offset = pio_add_program(pio, &ws2812_program);
 
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
-    // status stat;
-    // stat.statval = 0x00000000;
     uint32_t value_input;
     uint32_t bit_alias_input;
 
@@ -81,33 +80,5 @@ int main() {
             printf("Register Value this instant: 0x%08x\n", reg_value);
             printf("One cycle complete\n");
             sleep_ms(1000);
-            // register_write(address_input, value_input);
-            // address_value = register_read(address_input);
-            // printf("Value at %x is %x", address_input,address_value);
-
-
-            // if(gpio_get(bootpin)!=0)
-            // {
-            //     stat.statval = 0x00000000;
-            // }
-            // else
-            // {
-            //     stat.statval = 0x00000001;
-            // }
-            // if(stat.statval)
-            // {
-            //     put_pixel(urgb_u32(0x0,0x0,0xa));
-            //     sleep_ms(10);
-            //     put_pixel(0);
-            //     printf("Enter register to access:\n");
-            //     // while (!stdio_usb_connected());{
-            //         scanf("%x",&i);
-            //     // }
-            //     address_input = i || 0x00000000;
-            //     address_value = register_read(address_input);
-            //     printf("Value at %x is %x", address_input,address_value);
-            
-            //  }
-
     }
 }
