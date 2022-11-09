@@ -18,16 +18,6 @@
 #define PICO_DEFAULT_WS2812_POWER_PIN 11
 #define QTPY_BOOT_PIN 21
 const uint bootpin = QTPY_BOOT_PIN;
-// typedef          uint32_t   VALUE;
-// typedef volatile uint32_t * ADDRESS;
-
-// VALUE register_read(ADDRESS address) {
-//     return *address;
-// }
-// void register_write(ADDRESS address, VALUE value) {
-//     *address = value;
-// }
-
 
 static inline void put_pixel(uint32_t pixel_grb) {
     pio_sm_put_blocking(pio0, 0, pixel_grb << 8u);
@@ -40,9 +30,9 @@ static inline uint32_t urgb_u32(uint8_t r, uint8_t g, uint8_t b) {
             (uint32_t) (b);
 }
 
-typedef struct{
-    uint32_t statval;
-} status;
+// typedef struct{
+//     uint32_t statval;
+// } status;
 
 void replay_data(int *sequence){
     for(int i=0; i<5000; i++){
