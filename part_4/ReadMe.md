@@ -12,6 +12,5 @@ Required code has been uploaded too.
 On top of that we implemented another function in our C file with delays in the playback. This function was activated with using s as a macro. Code has been uploaded.
 
 ### Output
-
-
+https://user-images.githubusercontent.com/38978733/201554021-cbb9cb53-083c-4530-9da9-cb492a051ae2.mp4
 
