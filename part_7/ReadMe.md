@@ -28,9 +28,10 @@ static inline void bootpin_program_init(PIO pio, uint sm, uint offset, uint pin)
     pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, false);
     pio_sm_init(pio, sm, offset, &c);
     pio_sm_set_enabled(pio, sm, true);
-
+    }
+    
+Further modifications were made in the ws2812.c file to use these constructs.
 
 ### Output
-![]()
-
+https://user-images.githubusercontent.com/38978733/202344446-7db67bcb-391e-44bc-8628-f2ca28cf1c4c.mp4
 
