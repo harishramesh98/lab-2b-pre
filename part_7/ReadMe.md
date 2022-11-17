@@ -7,16 +7,16 @@ University of Pennsylvania, ESE 5190: Intro to Embedded Systems, Lab 2B
     
 ### Modifications implemented:
 Modifications were made in the ws2812.pio file to use the PIO in the QTPY effectively.
-The major things implemented were:.program bootpin
+The major things implemented were:
 
-set pindirs, 0
-
-.wrap_target
-lable: 
-    in pins, 1
-    push
-    jmp lable
-.wrap
+.program bootpin <br />
+set pindirs, 0 <br />
+.wrap_target <br />
+label: <br />
+    in pins, 1 <br />
+    push <br />
+    jmp label <br />
+.wrap <br />
 
 
 static inline void bootpin_program_init(PIO pio, uint sm, uint offset, uint pin) {
