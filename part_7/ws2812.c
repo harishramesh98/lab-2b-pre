@@ -18,6 +18,9 @@
 #define PICO_DEFAULT_WS2812_POWER_PIN 11
 #define QTPY_BOOT_PIN 21
 const uint bootpin = QTPY_BOOT_PIN;
+PIO pio = pio0;
+int sm = 0;
+int sm1 = 1;
 
 static inline void put_pixel(uint32_t pixel_grb) {
     pio_sm_put_blocking(pio0, 0, pixel_grb << 8u);
@@ -72,7 +75,7 @@ void replay_data(int *sequence){
 void record_data(int *sequence){
    for(int i=0; i<5000; i++){
 		sleep_ms(2);
-		if(gpio_get(bootpin)==0){
+		if((uint8_t)pio_sm_get(pio,sm1)==0){
 			sequence[i] = 1;
 		}
 	}
@@ -91,9 +94,9 @@ int main() {
     // int sm = 0;
     // uint offset = pio_add_program(pio, &ws2812_program);
 
-    PIO pio = pio0;
-    int sm = 0;
-    int sm1 = 1;
+//     PIO pio = pio0;
+//     int sm = 0;
+//     int sm1 = 1;
     uint offset = pio_add_program(pio, &ws2812_program);
     uint offset1 = pio_add_program(pio, &bootpin_program);
 
