@@ -32,6 +32,11 @@ static inline void bootpin_program_init(PIO pio, uint sm, uint offset, uint pin)
     
 Further modifications were made in the ws2812.c file to use these constructs.
 
-### Output
+### Output from C using PuTTY
 https://user-images.githubusercontent.com/38978733/202344446-7db67bcb-391e-44bc-8628-f2ca28cf1c4c.mp4
+
+### Output while using python to record a log of the sequencer
+https://user-images.githubusercontent.com/38978733/202636517-449ba319-5dfa-45fa-bbda-6b9691842cab.mp4
+
+
 
