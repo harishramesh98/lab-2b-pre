@@ -11,29 +11,25 @@
 #define red_led 
 const uint led_pin = PICO_PIN;
 #define IS_RGBW true
-//Pio stuff
-// PIO pio = pio0;
-// int sm = 0;
+Pio stuff
+PIO pio = pio0;
+int sm = 0;
 
 
 void morseCode(char *input);
 
 //Sub-function to toggle leds
 void blink_dot(uint led_pin){
-    gpio_put(led_pin, 1);
-    // pio_sm_put_blocking(pio,sm, 1);
+    pio_sm_put(pio,sm, 1);
     sleep_ms(200);
-    // pio_sm_put(pio,sm, 0);
-    gpio_put(led_pin, 0);
+    pio_sm_put(pio,sm, 0);
     sleep_ms(500);
 }
 
 void blink_dash(uint led_pin){
-    // pio_sm_put_blocking(pio,sm, 1);
-    gpio_put(led_pin, 1);
+    pio_sm_put(pio,sm, 1);
     sleep_ms(1000);
-    // pio_sm_put(pio,sm, 0);
-    gpio_put(led_pin, 0);
+    pio_sm_put(pio,sm, 0);
     sleep_ms(500);
 }
 
@@ -302,12 +298,9 @@ void morseCode(char *input)
 }
 
 int main() {
-    gpio_init(led_pin);
-    gpio_set_dir(led_pin, GPIO_OUT);
-    stdio_init_all();
 
-    // uint offset = pio_add_program(pio, &ws2812_program);
-    // ws2812_program_init(pio, sm, offset, PICO_PIN, 800000, IS_RGBW);
+    uint offset = pio_add_program(pio, &ws2812_program);
+    ws2812_program_init(pio, sm, offset, PICO_PIN, 800000, IS_RGBW);
     
 
     while(!stdio_usb_connected());
