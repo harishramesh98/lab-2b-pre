@@ -1,13 +1,24 @@
 
+
 University of Pennsylvania, ESE 5190: Intro to Embedded Systems, Lab 2B
 
     Harish Ramesh, worked with Sugata Sen
     https://www.linkedin.com/in/harishramesh1998/, https://www.linkedin.com/in/sugata-sen/
     Tested on: Lenovo Legion Slim-7, Windows-11; ASUS ROG GL-552 VW, Windows-10
     
-### Modifications implemented:
-As per our project proposal we implemented a morse code signal generated which drove an LED based on character received by the serial input and translated by the C program running onboard the RP2040 QTpy. We implemented this using pio later on and both drove an LED and printed the result of the transaction. We made sub-functions for printing dots and dashes.
+### Functionality implemented:
+For part 9 we are using the APDS sensor data, and checking the colour packet sent, 
+1. to the pio
+2. to the ws2812 ( Neopixel LED )
+
+We also noted the "C" channel value, as a suitable proxy for the ambient brightness level during the experiment. We conducted the experiment in both dark and bright room conditions, and adjusted the ADATA register to suitably small integration time, so the Neopixel closely tracks the colour and brightness that is sensed by APDS coour sensor.
+
+
 
 ### Output
-https://user-images.githubusercontent.com/38978733/202828751-5db3faf0-6a69-41ee-817b-f8b73943d4b1.mp4
+Dark room :
+https://user-images.githubusercontent.com/113575268/202830177-66361248-1108-4bae-98ee-8b7b044e3ac7.mp4
 
+
+Bright room :
+https://user-images.githubusercontent.com/113575268/202638687-ac837aa6-576f-47f8-addb-2be3d7792d4c.mp4
