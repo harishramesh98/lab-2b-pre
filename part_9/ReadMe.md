@@ -1,14 +1,8 @@
-
-University of Pennsylvania, ESE 5190: Intro to Embedded Systems, Lab 2B
-
-    Harish Ramesh, worked with Sugata Sen
-    https://www.linkedin.com/in/harishramesh1998/, https://www.linkedin.com/in/sugata-sen/
-    Tested on: Lenovo Legion Slim-7, Windows-11; ASUS ROG GL-552 VW, Windows-10
-    
-### Modifications implemented:
+See i2c_bus_scan.c for part 9 implementation
 
 
-### Output
-![]()
 
+
+
+https://user-images.githubusercontent.com/113575268/202638687-ac837aa6-576f-47f8-addb-2be3d7792d4c.mp4
 
